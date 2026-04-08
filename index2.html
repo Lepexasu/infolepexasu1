@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lepexasu | Info</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        @import url('https://googleapis.com');
+
+        :root {
+            --bg-color: #050505;
+            --accent-purple: #bc13fe;
+            --bright-purple: #d670ff;
+            --pixel-font: 'Press Start 2P', cursive;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        @keyframes blinker { 50% { opacity: 0; } }
+        .blink { animation: blinker 1s linear infinite; }
+
+        .fade-out {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        body.shutting-down .fade-out { opacity: 1; }
+
+        * {
+            font-family: var(--pixel-font) !important;
+            image-rendering: pixelated;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(0deg, rgba(188, 19, 254, 0.05) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(188, 19, 254, 0.05) 2px, transparent 2px);
+            background-size: 40px 40px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .side-photo {
+            flex: 0 0 200px;
+            height: 480px;
+            object-fit: cover;
+            border: 4px double var(--accent-purple);
+            padding: 5px;
+            background: rgba(188, 19, 254, 0.05);
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.95);
+            border: 4px double var(--accent-purple);
+            padding: 40px;
+            text-align: center;
+            box-shadow: 10px 10px 0px rgba(188, 19, 254, 0.15);
+            animation: fadeIn 0.8s ease-out;
+            min-width: 650px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            color: var(--bright-purple);
+            text-shadow: 0 0 10px var(--accent-purple);
+            margin: 0 0 40px 0;
+            letter-spacing: 2px;
+        }
+
+        .content-grid {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .info-block { flex: 1; text-align: left; }
+        .social-block { display: flex; flex-direction: column; gap: 15px; }
+
+        .data-item {
+            border-left: 4px solid var(--accent-purple);
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background: rgba(188, 19, 254, 0.05);
+            transition: 0.3s;
+        }
+
+        .data-item:hover {
+            background: rgba(188, 19, 254, 0.15);
+            transform: translateX(5px);
+        }
+
+        .label { color: var(--accent-purple); font-size: 0.55rem; display: block; margin-bottom: 5px; }
+        .value { font-size: 0.75rem; color: #eee; }
+
+        .link-btn {
+            display: block;
+            width: 170px;
+            padding: 15px;
+            border: 2px solid var(--accent-purple);
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-size: 0.6rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .link-btn:hover {
+            background: var(--accent-purple);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-purple);
+            transform: scale(1.05);
+        }
+
+        .disconnect-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 15px 35px;
+            border: 2px solid #444;
+            color: #444;
+            text-decoration: none;
+            font-size: 0.65rem;
+            cursor: pointer;
+            transition: 0.3s;
+            background: none;
+        }
+
+        .disconnect-btn:hover {
+            border-color: #ff0000;
+            color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        }
+
+        @media (max-width: 1100px) {
+            .main-container { flex-direction: column; }
+            .card { min-width: 90%; padding: 20px; }
+            .content-grid { flex-direction: column; align-items: center; }
+            .side-photo { width: 180px; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fade-out"></div>
+
+    <div class="main-container">
+        <img src="https://ibb.co" alt="Left" class="side-photo">
+
+        <div class="card">
+            <h1>INFORMATION<span class="blink">_</span></h1>
+            
+            <div class="content-grid">
+                <div class="info-block">
+                    <div class="data-item">
+                        <span class="label">[ NAME ]</span>
+                        <span class="value">Lepexasu</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">[ AGE ]</span>
+                        <span class="value">16 Years</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">[ DATE OF BIRTH ]</span>
+                        <span class="value">14.04.XXXX</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">[ USERNAME ]</span>
+                        <span class="value">@lepexasu</span>
+                    </div>
+                </div>
+
+                <div class="social-block">
+                    <a href="https://t.me/Lepexasu_bot" target="_blank" class="link-btn">SPAMBLOCK</a>
+                    <a href="https://steamcommunity.com/profiles/76561199790693513/" target="_blank" class="link-btn">STEAM</a>
+                    <a href="https://www.tiktok.com/@lepexus21?_r=1&_t=ZS-95NIiv7TLQ8" target="_blank" class="link-btn">TIKTOK</a>
+                </div>
+            </div>
+
+            <button class="disconnect-btn" onclick="disconnect()">DISCONNECT</button>
+        </div>
+
+        <img src="https://ibb.co" alt="Right" class="side-photo">
+    </div>
+
+    <script>
+        function disconnect() {
+            document.body.classList.add('shutting-down');
+            setTimeout(() => {
+                window.location.href = "https://lepexasu.github.io/biolepexasu.github.io/";
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
