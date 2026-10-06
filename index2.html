@@ -10,7 +10,7 @@
   <style>
     :root {
       --bg: #0a050a;
-      --accent: #ff2d95;                      /* основной розовый акцент */
+      --accent: #ff2d95;                     
       --accent-soft: rgba(255, 45, 149, .35);
       --accent-faint: rgba(255, 45, 149, .06);
       --card-bg: rgba(20, 8, 16, .88);
@@ -50,7 +50,7 @@
       background-size: 40px 40px;
     }
 
-    /* Эффект старого телевизора (линии развёртки) */
+
     html::after {
       content: " ";
       position: fixed;
@@ -70,7 +70,7 @@
       gap: 34px;
     }
 
-    /* ===== ПОЛАРОИДЫ С ФОТО ===== */
+ 
     .photo-row {
       display: flex;
       gap: 20px;
@@ -120,7 +120,7 @@
       background: #1a0a14;
     }
 
-    /* ===== КАРТОЧКА ===== */
+
     .card {
       position: relative;
       width: 100%;
@@ -153,7 +153,7 @@
       margin-bottom: 14px;
     }
 
-    /* Мигающий курсор как в терминале */
+
     .blink { animation: blinker 1s linear infinite; }
     @keyframes blinker { 50% { opacity: 0; } }
 
@@ -201,7 +201,7 @@
       outline: none;
     }
 
-    /* ===== INFORMATION ===== */
+ 
     .info-block { text-align: left; margin-bottom: 22px; }
 
     .data-item {
@@ -258,7 +258,7 @@
       outline: none;
     }
 
-    /* Плавное появление */
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
       to   { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -269,7 +269,7 @@
       .polaroid, .card { animation: none; }
     }
 
-    /* линия-градиент внизу карточки */
+  
     .card .bar {
       position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
