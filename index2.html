@@ -258,6 +258,17 @@
       outline: none;
     }
 
+    /* Плавное появление */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+      to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    .polaroid { animation: fadeIn 1s ease-out; }
+    .card     { animation: fadeIn .8s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      .polaroid, .card { animation: none; }
+    }
+
     /* линия-градиент внизу карточки */
     .card .bar {
       position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
